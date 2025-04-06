@@ -2,22 +2,18 @@ from django.db import models
 
 # Create your models here.
 class artist(models.Model):
-    id = models.IntegerField
-    name = models.CharField
+    name = models.CharField(max_length=200)
 
 class album(models.Model):
-    id = models.IntegerField
-    title = models.CharField
-    artist = models.ForeignKey(artist)
+    title = models.CharField(max_length=200)
+    artist = models.ForeignKey(artist, on_delete=models.CASCADE)
     
 class track(models.Model):
-    id = models.IntegerField
-    name = models.CharField
-    composer = models.CharField
-    milliseconds = models.IntegerField
-    bytes = models.IntegerField
-    unitPrice = models.FloatField
-    album = models.ForeignKey(album)
-    
+    name = models.CharField(max_length=200)
+    composer = models.CharField(max_length=200)
+    milliseconds = models.IntegerField(default=0)
+    bytes = models.IntegerField(default=0)
+    unitPrice = models.FloatField(default=0)
+    album = models.ForeignKey(album, on_delete=models.CASCADE)
 
     
