@@ -1,23 +1,23 @@
 from django.db import models
 
 # Create your models here.
-class Artist(models.Model):
+class artist(models.Model):
     id = models.IntegerField
     name = models.CharField
 
-class Album(models.Model):
+class album(models.Model):
     id = models.IntegerField
     title = models.CharField
-    artist = models.ForeignKey(Artist)
+    artist = models.ForeignKey(artist)
     
-class Track(models.Model):
+class track(models.Model):
     id = models.IntegerField
     name = models.CharField
     composer = models.CharField
     milliseconds = models.IntegerField
     bytes = models.IntegerField
     unitPrice = models.FloatField
-    album = models.ForeignKey(Album)
+    album = models.ForeignKey(album)
     
 
     
