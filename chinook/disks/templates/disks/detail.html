@@ -1,0 +1,14 @@
+
+<form action="{% url 'disks:tracklist' album_id %}" method = "post">
+{%csrf_token%}
+<fieldset>
+    <legend><h1>{{album.title}}</h1></legend>
+    <legend><h1>{{album.artist_set.all}}</h1></legend>
+    {% if error_message %}<p><strong>{{error_message}}</strong></p>{%endif%}
+    {% for track in disks.track_set.all %}
+        <input type="radio" name ="track" id="track{{forloop.counter}}" value="{{track.id}}">
+        <label for="track{{forloop.counter}}">{{track.name}}</label><br>
+    {%endfor%}
+</fieldset>
+<input type="submit" value="Tracklist">
+</form>

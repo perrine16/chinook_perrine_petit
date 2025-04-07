@@ -1,0 +1,9 @@
+{% if album_list %}
+    <ul>
+    {% for album in album_list %}
+        <li><a href="{% url 'disks:detail' album.id%}">{{ album.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No disks are available.</p>
+{% endif %}
